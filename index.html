@@ -4,84 +4,484 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Método chama oculta</title>
+
+  <title>Método Chama Oculta</title>
+
+  <!-- FONTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Meta Pixel Code -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- META -->
+  <meta name="description"
+    content="Descubra o método que está ajudando mulheres e casais a reacenderem a paixão, conexão e desejo em poucos dias." />
+
+  <!-- STYLE -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #070707;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at top left, rgba(255, 45, 85, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 0, 85, 0.15), transparent 30%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* TOPO */
+
+    .top-alert {
+      background: linear-gradient(90deg, #ff0055, #ff2d55);
+      text-align: center;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .5px;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding-top: 40px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 18px;
+      border-radius: 999px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00ff73;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.4);
+        opacity: .6;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .badge span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e7e7e7;
+    }
+
+    .headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 25px;
+      letter-spacing: -1.5px;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, #ff0055, #ff4d6d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subheadline {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto 35px;
+      color: #c9c9c9;
+    }
+
+    /* PLAYER */
+
+    .video-wrapper {
+      margin-top: 30px;
+      background: #111;
+      border-radius: 24px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 50px rgba(255, 0, 85, 0.15);
+    }
+
+    /* SOCIAL PROOF */
+
+    .trust-bar {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #d4d4d4;
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00ff73;
+      animation: pulse 1.2s infinite;
+    }
+
+    /* CTA */
+
+    .cta-wrapper {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff0055, #ff2d55);
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 22px 42px;
+      border-radius: 18px;
+      transition: .3s;
+      box-shadow: 0 15px 40px rgba(255, 0, 85, 0.35);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        transform: translateY(0px);
+      }
+
+      to {
+        transform: translateY(-4px);
+      }
+    }
+
+    .cta-button:hover {
+      transform: scale(1.04);
+    }
+
+    .secure-text {
+      margin-top: 15px;
+      color: #9d9d9d;
+      font-size: 14px;
+    }
+
+    /* BENEFÍCIOS */
+
+    .benefits {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 28px;
+      border-radius: 22px;
+      transition: .3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 0, 85, 0.4);
+    }
+
+    .benefit-icon {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .benefit-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .benefit-text {
+      color: #bdbdbd;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin-top: 70px;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .footer-link {
+      color: #b5b5b5;
+      text-decoration: none;
+      transition: .3s;
+      font-size: 14px;
+    }
+
+    .footer-link:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      color: #7d7d7d;
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .disclaimer {
+      margin-top: 15px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px) {
+      .headline {
+        font-size: 35px;
+      }
+
+      .subheadline {
+        font-size: 17px;
+      }
+
+      .cta-button {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- META PIXEL -->
   <script>
     !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
+      if (f.fbq) return;
+      n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
+
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+
+      s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s)
+
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
+
     fbq('init', '885617487871877');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=885617487871877&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
+
 </head>
 
 <body>
 
+  <div class="top-alert">
+    🔥 ACESSO IMEDIATO + BÔNUS EXCLUSIVOS DISPONÍVEIS HOJE
+  </div>
+
   <main class="container">
 
-    <header class="headline-block">
+    <section class="hero">
+
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>RESULTADOS EM MENOS DE 7 DIAS</span>
+      </div>
+
       <h1 class="headline">
-        O método que ajuda casais a reacender a chama
-        <span class="accent">em menos de 7 dias,</span> mesmo quando o
-        parceiro parece <span class="accent">distante e frio.</span>
+        O método que está ajudando mulheres a
+        <span class="accent">reacender a paixão, desejo e conexão</span>
+        mesmo quando o parceiro parece frio, distante e sem interesse.
       </h1>
-    </header>
 
-    <vturb-smartplayer id="vid-69fa6577c9b2ebf0c66878ba"
-      style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-    <script type="text/javascript">
-      var s = document.createElement("script");
-      s.src = "https://scripts.converteai.net/abb34497-84e0-45b5-849d-7082e0f7a307/players/69fa6577c9b2ebf0c66878ba/v4/player.js",
-        s.async = !0, document.head.appendChild(s);
-    </script>
+      <p class="subheadline">
+        Descubra os gatilhos emocionais e técnicas silenciosas que fazem o homem voltar a sentir
+        atração, atenção e desejo intenso naturalmente.
+      </p>
 
-    <section class="trust-bar">
-      <div class="status-dot"></div>
-      <p class="trust-text">ASSISTINDO AGORA: <span class="accent" id="viewer-count">1.247</span> PESSOAS</p>
+      <!-- VÍDEO -->
+
+      <div class="video-wrapper">
+
+        <vturb-smartplayer id="vid-69fa6577c9b2ebf0c66878ba"
+          style="display:block; margin:0 auto; width:100%;">
+        </vturb-smartplayer>
+
+      </div>
+
+      <script type="text/javascript">
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/abb34497-84e0-45b5-849d-7082e0f7a307/players/69fa6577c9b2ebf0c66878ba/v4/player.js",
+          s.async = !0,
+          document.head.appendChild(s);
+      </script>
+
+      <!-- PROVA SOCIAL -->
+
+      <section class="trust-bar">
+        <div class="status-dot"></div>
+        <p>
+          ASSISTINDO AGORA:
+          <span class="accent" id="viewer-count">1.247</span>
+          PESSOAS
+        </p>
+      </section>
+
+      <!-- CTA -->
+
+      <div class="cta-wrapper">
+
+        <a href="https://checkout.escalepay.com/5529296" class="cta-button">
+          QUERO ACESSAR O MÉTODO AGORA
+        </a>
+
+        <p class="secure-text">
+          🔒 Compra 100% segura • Acesso imediato após pagamento
+        </p>
+
+      </div>
+
     </section>
 
-    <!-- BOTÃO DE COMPRA (CHECKOUT ATUALIZADO) -->
-    <div style="text-align:center; margin: 30px 0;">
-      <a href="https://checkout.escalepay.com/5529296" 
-         style="background:#ff2d55; color:#fff; padding:15px 25px; text-decoration:none; border-radius:8px; font-weight:700; display:inline-block;">
-        QUERO ACESSAR AGORA
-      </a>
-    </div>
+    <!-- BENEFÍCIOS -->
+
+    <section class="benefits">
+
+      <div class="benefit-card">
+        <div class="benefit-icon">❤️</div>
+        <h3 class="benefit-title">Reconexão Emocional</h3>
+        <p class="benefit-text">
+          Aprenda técnicas que despertam novamente atenção, carinho e conexão.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🔥</div>
+        <h3 class="benefit-title">Aumente o Desejo</h3>
+        <p class="benefit-text">
+          Descubra gatilhos emocionais que fazem o parceiro voltar a procurar você.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">✨</div>
+        <h3 class="benefit-title">Método Discreto</h3>
+        <p class="benefit-text">
+          Sem humilhação, sem correr atrás e sem parecer desesperada.
+        </p>
+      </div>
+
+    </section>
 
   </main>
 
+  <!-- FOOTER -->
+
   <footer class="footer">
+
     <div class="footer-links">
       <a href="/" class="footer-link">Termos de Uso</a>
-      <a href="/" class="footer-link">Política de Privacidade</a>
-      <a href="https://wa.me/258834688399" class="footer-link">Contato WhatsApp</a>
+
+      <a href="/" class="footer-link">
+        Política de Privacidade
+      </a>
+
+      <a href="https://wa.me/258834688399" class="footer-link">
+        WhatsApp
+      </a>
     </div>
 
-    <p class="copyright">&copy; 2026 Método chama oculta. Todos os direitos reservados.</p>
-    <p class="copyright disclaimer">
-      Este site não faz parte do site do Facebook ou do Facebook Inc. Além disso, este site NÃO é endossado pelo
-      Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da FACEBOOK, Inc.
+    <p class="copyright">
+      © 2026 Método Chama Oculta. Todos os direitos reservados.
     </p>
+
+    <p class="copyright disclaimer">
+      Este site não faz parte do Facebook ou Facebook Inc.
+      Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira.
+      FACEBOOK é uma marca registrada da META.
+    </p>
+
   </footer>
 
-  <script src="assets/js/counter.js"></script>
+  <!-- CONTADOR -->
+
+  <script>
+    function atualizarContador() {
+      const contador = document.getElementById('viewer-count');
+
+      let numero = Math.floor(Math.random() * (1540 - 1180) + 1180);
+
+      contador.innerText = numero.toLocaleString('pt-BR');
+    }
+
+    setInterval(atualizarContador, 4000);
+  </script>
 
 </body>
 
